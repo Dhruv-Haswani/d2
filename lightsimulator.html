@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Traffic Light Simulator</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+        }
+
+        .traffic-light {
+            width: 120px;
+            background: black;
+            padding: 20px;
+            border-radius: 20px;
+            margin: 20px auto;
+        }
+
+        .light {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: gray;
+            margin: 10px auto;
+        }
+
+        .red {
+            background: red;
+        }
+
+        .green {
+            background: green;
+        }
+
+        .yellow {
+            background: yellow;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Traffic Light Simulator</h2>
+
+    <div class="traffic-light">
+        <div id="redLight" class="light"></div>
+        <div id="yellowLight" class="light"></div>
+        <div id="greenLight" class="light"></div>
+    </div>
+
+    <button onclick="changeLight()">Change Light</button>
+
+    <script>
+        let currentLight = "red";
+
+        function changeLight() {
+         
+            document.getElementById("redLight").className = "light";
+            document.getElementById("yellowLight").className = "light";
+            document.getElementById("greenLight").className = "light";
+
+            if (currentLight === "red") {
+                document.getElementById("greenLight").classList.add("green");
+                currentLight = "green";
+            }
+            else if (currentLight === "green") {
+                document.getElementById("yellowLight").classList.add("yellow");
+                currentLight = "yellow";
+            }
+            else if (currentLight === "yellow") {
+                document.getElementById("redLight").classList.add("red");
+                currentLight = "red";
+            }
+        }
+
+        document.getElementById("redLight").classList.add("red");
+    </script>
+
+</body>
+</html>
