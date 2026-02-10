@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dhruv Haswani | IT Engineering Student</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+
+        .description {
+            font-size: 18px;
+            color: purple;
+            line-height: 1.6;
+        }
+
+        .section-title {
+            font-family: Georgia, serif;
+            font-size: 22px;
+            color: blue;
+            border-bottom: 2px solid #b2b3;
+            padding-bottom: 5px;
+            margin-bottom: 10px;
+        }
+
+        button {
+            margin: 5px;
+            padding: 8px 12px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+<header class="header">
+    <h1>Dhruv Haswani</h1>
+    <h3><i>IT Engineering Student | Aspiring Data Analyst</i></h3>
+</header>
+
+<section class="profile">
+    <div class="description">
+        <p id="aboutText">
+            I am a passionate IT engineering student with a strong interest in programming, Data Analytics, and problem solving.
+        </p>
+        <button onclick="changeText()">Change Paragraph Text</button>
+    </div>
+</section>
+
+<section class="hobbies">
+    <h2 class="section-title">Hobbies</h2>
+
+    <ul id="hobbyList">
+        <li>Gym & Fitness</li>
+        <li>Travelling</li>
+        <li>Learning</li>
+    </ul>
+
+    <button onclick="addItem()">Add New Hobby</button>
+    <button onclick="removeItem()">Remove Last Hobby</button>
+</section>
+
+<section class="colors">
+    <h2 class="section-title">Change Background Color</h2>
+    <button onclick="changeColor('lightblue')">Blue</button>
+    <button onclick="changeColor('lightgreen')">Green</button>
+    <button onclick="changeColor('lightpink')">Pink</button>
+    <button onclick="changeColor('white')">Reset</button>
+</section>
+
+<section class="social">
+    <h2 class="section-title">Connect With Me</h2>
+    <p><strong>LinkedIn:</strong> linkedin.com/in/eternallydhruv</p>
+    <p><strong>Instagram:</strong> instagram.com/eternallydhruv</p>
+</section>
+
+<script>
+    function changeText() {
+        document.getElementById("aboutText").innerText =
+            "This paragraph text has been changed using DOM Manipulation!";
+    }
+
+    function addItem() {
+        let li = document.createElement("li");
+        li.innerText = "New Hobby Added";
+        document.getElementById("hobbyList").appendChild(li);
+    }
+
+    function removeItem() {
+        let list = document.getElementById("hobbyList");
+        if (list.children.length > 0) {
+            list.removeChild(list.lastElementChild);
+        }
+    }
+
+    function changeColor(color) {
+        document.body.style.backgroundColor = color;
+    }
+</script>
+
+</body>
+</html>
