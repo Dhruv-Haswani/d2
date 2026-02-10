@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Manipulation Practical</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+
+        .section-title {
+            font-family: Georgia, serif;
+            font-size: 22px;
+            color: blue;
+            border-bottom: 2px solid #b2b3;
+            padding-bottom: 5px;
+            margin-bottom: 10px;
+        }
+
+        button, input {
+            margin: 5px;
+            padding: 6px 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+<h1>DOM Manipulation Practical</h1>
+
+<p id="aboutText">
+    I am a passionate IT engineering student with a strong interest in programming, Data Analytics, and problem solving.
+</p>
+
+<button onclick="changeText()">Change Paragraph Text</button>
+
+<h2 class="section-title">Hobbies</h2>
+
+<ul id="hobbyList">
+    <li>Gym & Fitness</li>
+    <li>Travelling</li>
+    <li>Learning</li>
+</ul>
+
+<input type="text" id="hobbyInput" placeholder="Enter new hobby">
+
+<br>
+
+<button onclick="addItem()">Add Hobby</button>
+<button onclick="removeItem()">Remove Last Hobby</button>
+
+<h2 class="section-title">Change Background Color</h2>
+
+<button onclick="changeColor('lightblue')">Blue</button>
+<button onclick="changeColor('lightgreen')">Green</button>
+<button onclick="changeColor('lightpink')">Pink</button>
+<button onclick="changeColor('white')">Reset</button>
+
+<script>
+    function changeText() {
+        document.getElementById("aboutText").innerText =
+            "This text has been changed to demonstrate paragraph modification using JavaScript.";
+    }
+
+    function addItem() {
+        let hobby = document.getElementById("hobbyInput").value;
+        if (hobby !== "") {
+            let li = document.createElement("li");
+            li.innerText = hobby;
+            document.getElementById("hobbyList").appendChild(li);
+            document.getElementById("hobbyInput").value = "";
+        }
+    }
+
+    function removeItem() {
+        let list = document.getElementById("hobbyList");
+        if (list.children.length > 0) {
+            list.removeChild(list.lastElementChild);
+        }
+    }
+
+    function changeColor(color) {
+        document.body.style.backgroundColor = color;
+    }
+</script>
+
+</body>
+</html>
